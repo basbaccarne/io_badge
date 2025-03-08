@@ -24,7 +24,7 @@ Let's start at the beginning. If we want to create an animation, we need to firs
         ffmpeg -i img/example.gif img/frames/frame_%04d.png
         ```
 
-    * Merge into a spritesheet (change the dimensions!)
+    * Merge into a spritesheet (change the dimensions, beware: ffpmpeg has filesize limits!)
         ```console
         ffmpeg -framerate 30 -i img/frames/frame_%04d.png -filter_complex "[0:v]tile=10x12" img/spritesheet.png
         ```
