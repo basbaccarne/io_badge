@@ -10,15 +10,20 @@ TOTAL_FRAMES = 438
 # Libraries
 import pygame
 from pathlib import Path
+import os
 
 # PATHS
 SCRIPT_DIR = Path(__file__).parent
 IMG_DIR = SCRIPT_DIR.parent / 'img'
 
+# set audio to dummy driver since we have no audo device
+os.environ["SDL_AUDIODRIVER"] = "dummy"
+
 # Initialize Pygame
 pygame.init()
 
 # Load the spritesheet
+print(f"Loading image from: {IMG_DIR / 'spritesheet2.png'}")
 spritesheet = pygame.image.load(IMG_DIR / 'spritesheet2.png')
 
 # Define the dimensions of each frame in the spritesheet
