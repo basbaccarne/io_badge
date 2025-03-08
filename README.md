@@ -1,6 +1,64 @@
 # io_badge
 IO badges for fun
 
+# Hardware
+- [ ] [HyperPixel2r](https://www.elektor.com/hyperpixel-2-1-round-hi-res-display-for-raspberry-pi) from Pimoroni
+- [ ] Raspi Zero W
+- [ ] Micro USB cable
+- [ ] [USB Battery Pack](https://voltaicsystems.com/v25/)
+
+# Installation
+* Burn raspi OS [[Buster](https://downloads.raspberrypi.com/raspios_lite_armhf/images/raspios_lite_armhf-2021-05-28/)] on a fresh pi
+* This works best headless
+    * Add a file named ```wpa_supplicant.conf``` to the BOOT folder on the sd card (not the ROOT)
+        * Make sure it is encoded as EOL > Unix
+        * Add the following:
+            ```ini
+            country=BE
+            ctrl_interface=DIR=/var/run/wpa_supplicant GROUP=netdev
+            update_config=1
+
+            network={
+                ssid="SSID"
+                psk="password"
+                scan_ssid=1
+            }
+            ```
+    * Add a file in the same directory called ```ssh``` (without extention, this allows to enter the pi using SSH)
+    * Note to self: this didn't work on my Telenet router, but did work on the repeater
+    * Enter Sd card, power up, and give the device some time to boot
+
+* Update pi (this will take a while)
+    ```console
+    sudo apt update
+    sudo apt upgrade -y
+    ```
+* Get the Pimeroni driver & install
+    ```console
+    git clone https://github.com/pimoroni/hyperpixel2r
+    cd hyperpixel2r
+    sudo ./install.sh
+    sudo reboot
+    ```
+* Python should be already installed. If you want to check this (& pip)
+    ```console
+    python3 --version
+    python -m pip --version
+    ```
+* Install PyGame
+    ```console
+    python3 pip install pygame
+    ```
+* Get the code and media directly from GitHub
+    ```console
+    sudo apt install git
+    git clone https://github.com/basbaccarne/io_badge/
+    ```
+* Testrun the code
+    ```console
+    python3 io_badge/src/main.py
+    ```
+
 ## Challenge: animated vector-based images to pygame
 Let's start at the beginning. If we want to create an animation, we need to first design and animate a concept. I believe that Figma has the best balance between creative flexibility and intuitive controls. For more advanced animations you can work in Adobe After Effects, Krita, etc. 
 
