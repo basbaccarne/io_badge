@@ -117,6 +117,25 @@ Let's start at the beginning. If we want to create an animation, we need to firs
  <img src="img/example.gif" width="300"> 
 </div>
 
+### Challenge: reducing resources on the pi
+A smooth 30FPS animation based on a spritesheet can be challenging in a raspi pi zero w, which has limited resources. Paths to explore:
+
+- [ ] Use individual images instead of spritesheet
+- [ ] Use BMP instead of png
+- [ ] Free up system resources
+    ```console
+    sudo systemctl disable bluetooth
+    sudo systemctl stop avahi-daemon
+    sudo systemctl stop hciuart
+    ```
+- [ ] Disable camera (```sudo raspi-config``` > Select 'Interfacing Options' -> 'Camera' -> Disable)
+- [ ] Increase video memory
+    * ```sudo nano /boot/config.txt```
+    * add ```ini gpu_mem=128```
+
+
+
+
 ## Inspiration
 
 https://www.youtube.com/watch?v=l75A9TUMXOs   
