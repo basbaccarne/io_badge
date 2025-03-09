@@ -37,6 +37,11 @@ IO badges for fun
     ```console
     sudo apt install git -y
     ```
+* Python should be already installed. If you want to check this (& pip)
+    ```console
+    python3 --version
+    pip3 --version
+    ```
 * Get the Pimeroni driver & install
     ```console
     git clone https://github.com/pimoroni/hyperpixel2r
@@ -44,23 +49,31 @@ IO badges for fun
     sudo ./install.sh
     sudo reboot
     ```
-* Python should be already installed. If you want to check this (& pip)
-    ```console
-    python3 --version
-    pip3 --version
+* Check boot/config.txt (or /boot/firmware/config. txt). At the end of the file, you should see
+    ```ini
+    # Hyperpixel configuration
+    dtoverlay=hyperpixel2r
+    enable_dpi_lcd=1
+    dpi_group=2
+    dpi_mode=87
+    dpi_output_format=0x7f216
+    dpi_timings=480 0 10 16 55 480 0 15 60 15 0 0 0 60 0 19200000 6
     ```
+* After reboot, you should see a CLI interface on the display
+
 * Install pygame depencies
     ```console
-    sudo apt install -y python3-dev python3-pip libsdl2-dev libsdl2-image-dev \
-    libsdl2-mixer-dev libsdl2-ttf-dev libsmpeg-dev libsdl2-gfx-dev libportmidi-dev \
+    sudo apt install -y python3-dev python3-pip libsdl2-dev libsmpeg-dev libportmidi-dev \
     libavformat-dev libswscale-dev libjpeg-dev libtiff5-dev libx11-6 libsdl2-net-dev
     ```
-* Update pygame
+* Update pygame (you need a pygame version above 2.x)   
+    (for a specific version, e.g. 2.1.3, you can use ```sudo pip3 install pygame-2.1.3-cp37-cp37m-linux_armv6l.whl```)
     ```console
-    sudo apt install python3-pygame -y
-    pip3 install --upgrade --no-cache-dir pygame
+    sudo apt remove python3-pygame
+    sudo pip install pygame
     python3 -c "import pygame; print(pygame.__version__)"
     ```
+* Reboot system
 * Get the code and media directly from GitHub
     ```console
     git clone https://github.com/basbaccarne/io_badge/

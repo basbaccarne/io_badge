@@ -25,7 +25,7 @@ pygame.init()
 # Load the spritesheet
 print(f"Loading image from: {IMG_DIR / 'spritesheet2.png'}")
 spritesheet = pygame.image.load(str(IMG_DIR / 'spritesheet2.png'))
-
+print("loaded!")
 # Define the dimensions of each frame in the spritesheet
 frame_width = IMG_WIDTH
 frame_height = IMG_HEIGHT
@@ -56,7 +56,7 @@ screen = pygame.display.set_mode((IMG_WIDTH, IMG_WIDTH))
 clock = pygame.time.Clock()
 current_frame = 0
 running = True
-
+print("Pygame running ...")
 # Run the PyGame
 while running:
     
