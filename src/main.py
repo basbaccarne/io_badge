@@ -24,7 +24,7 @@ pygame.init()
 
 # Load the spritesheet
 print(f"Loading image from: {IMG_DIR / 'spritesheet2.png'}")
-spritesheet = pygame.image.load(IMG_DIR / 'spritesheet2.png')
+spritesheet = pygame.image.load(str(IMG_DIR / 'spritesheet2.png'))
 
 # Define the dimensions of each frame in the spritesheet
 frame_width = IMG_WIDTH

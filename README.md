@@ -51,11 +51,14 @@ IO badges for fun
     ```
 * Install pygame depencies
     ```console
-    sudo apt install libsdl2-dev libsdl2-mixer-dev libsdl2-gfx-dev libsdl2-image-dev libsdl2-net-dev libsdl2-ttf-dev -y
+    sudo apt install -y python3-dev python3-pip libsdl2-dev libsdl2-image-dev \
+    libsdl2-mixer-dev libsdl2-ttf-dev libsmpeg-dev libsdl2-gfx-dev libportmidi-dev \
+    libavformat-dev libswscale-dev libjpeg-dev libtiff5-dev libx11-6 libsdl2-net-dev
     ```
 * Update pygame
     ```console
     sudo apt install python3-pygame -y
+    pip3 install --upgrade --no-cache-dir pygame
     python3 -c "import pygame; print(pygame.__version__)"
     ```
 * Get the code and media directly from GitHub
