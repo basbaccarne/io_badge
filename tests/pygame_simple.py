@@ -4,6 +4,9 @@
 import pygame
 import sys
 
+# set audio to dummy driver since we have no audo device
+os.environ["SDL_AUDIODRIVER"] = "dummy"
+
 # Initialize Pygame
 pygame.init()
 
