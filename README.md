@@ -6,6 +6,12 @@ IO badges for fun
 - [ ] Raspi Zero W
 - [ ] Micro USB cable
 - [ ] [USB Battery Pack](https://voltaicsystems.com/v25/)
+- [ ] [3D printed case](https://a360.co/3FlakQw)
+- [ ] M2.5 stads-offs, nuts and bolts
+
+<div align="center">  
+ <img src="img/cad_design.png" width="300"> 
+</div>
 
 # Installation
 * Burn raspi OS [[Buster](https://downloads.raspberrypi.com/raspios_lite_armhf/images/raspios_lite_armhf-2021-05-28/)] on a fresh pi
@@ -122,19 +128,16 @@ A smooth 30FPS animation based on a spritesheet can be challenging in a raspi pi
 
 - [ ] Use individual images instead of spritesheet
 - [ ] Use BMP instead of png
-- [ ] Free up system resources
+- [x] Free up system resources
     ```console
     sudo systemctl disable bluetooth
     sudo systemctl stop avahi-daemon
     sudo systemctl stop hciuart
     ```
-- [ ] Disable camera (```sudo raspi-config``` > Select 'Interfacing Options' -> 'Camera' -> Disable)
-- [ ] Increase video memory
+- [x] Disable camera (```sudo raspi-config``` > Select 'Interfacing Options' -> 'Camera' -> Disable)
+- [x] Increase video memory
     * ```sudo nano /boot/config.txt```
     * add ```ini gpu_mem=128```
-
-
-
 
 ## Inspiration
 
