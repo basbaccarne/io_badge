@@ -32,7 +32,7 @@ IO badges for fun
             ```
     * Add a file in the same directory called ```ssh``` (without extention, this allows to enter the pi using SSH)
     * Note to self: this didn't work on my Telenet router, but did work on the repeater
-    * Enter Sd card, power up, and give the device some time to boot
+    * Enter Sd card, power up, and give the device some time to boot (reboot can be needed after initial boot)
 
 * Update pi (this will take a while)
     ```console
