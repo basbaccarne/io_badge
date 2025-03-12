@@ -73,7 +73,7 @@ IO badges for fun
     sudo apt install -y python3-dev python3-pip libsdl2-dev libsmpeg-dev libportmidi-dev \
     libavformat-dev libswscale-dev libjpeg-dev libtiff5-dev libx11-6 libsdl2-net-dev
     ```
-* Update pygame (you need a pygame version above 2.x)   
+* Update pygame (you need a pygame version above 2.x, but the latest pygame version seems be giving issues)   
     ```console
     pip3 install pygame==2.1.3 --no-cache-dir
     python3 -c "import pygame; print(pygame.__version__)"
