@@ -74,10 +74,8 @@ IO badges for fun
     libavformat-dev libswscale-dev libjpeg-dev libtiff5-dev libx11-6 libsdl2-net-dev
     ```
 * Update pygame (you need a pygame version above 2.x)   
-    (for a specific version, e.g. 2.1.3, you can use ```sudo pip3 install pygame-2.1.3-cp37-cp37m-linux_armv6l.whl```)
     ```console
-    sudo apt remove python3-pygame
-    sudo pip install pygame
+    pip3 install pygame==2.1.3 --no-cache-dir
     python3 -c "import pygame; print(pygame.__version__)"
     ```
 * Reboot system
