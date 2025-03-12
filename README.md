@@ -70,8 +70,8 @@ IO badges for fun
 
 * Install pygame depencies
     ```console
-    sudo apt install -y python3-dev python3-pip libsdl2-dev libsmpeg-dev libportmidi-dev \
-    libavformat-dev libswscale-dev libjpeg-dev libtiff5-dev libx11-6 libsdl2-net-dev
+    sudo apt install -y python3-dev python3-pip libsdl2-dev libsmpeg-dev libportmidi-dev libsdl2-mixer-2.0-0 \
+    libavformat-dev libswscale-dev libjpeg-dev libtiff5-dev libx11-6 libsdl2-net-dev libsdl2-image-2.0-0 libpng-dev
     ```
 * Update pygame (you need a pygame version above 2.x, but the latest pygame version seems be giving issues)   
     ```console
@@ -83,7 +83,12 @@ IO badges for fun
     ```console
     git clone https://github.com/basbaccarne/io_badge/
     ```
-* Testrun the code  
+* Testrun the code (simple) 
+    ```console
+    python3 io_badge/tests/pygame_simple.py
+    ```
+
+* Testrun the code (main) 
     ```console
     python3 io_badge/src/main.py
     ```
@@ -123,10 +128,7 @@ Let's start at the beginning. If we want to create an animation, we need to firs
 </div>
 
 ### Challenge: reducing resources on the pi
-A smooth 30FPS animation based on a spritesheet can be challenging in a raspi pi zero w, which has limited resources. Paths to explore:
-
-- [ ] Use individual images instead of spritesheet
-- [ ] Use BMP instead of png
+A smooth 30FPS animation based on a spritesheet can be challenging in a raspi pi zero w, which has limited resources, even on a zero W2 the FPS for full screen 480x480 pngs in a spritesheet is a bit too munch. Paths to explore:
 - [x] Free up system resources
     ```console
     sudo systemctl disable bluetooth
@@ -137,6 +139,13 @@ A smooth 30FPS animation based on a spritesheet can be challenging in a raspi pi
 - [x] Increase video memory
     * ```sudo nano /boot/config.txt```
     * add ```ini gpu_mem=128```
+
+- [ ] animated GIF directly
+- [ ] Use individual images instead of spritesheet
+- [ ] Use BMP instead of png
+- [ ] Lower the resolution
+- [ ] Rebuild animation in PyGame
+
 
 ## Inspiration
 
