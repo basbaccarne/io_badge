@@ -46,6 +46,7 @@ IO badges for fun
 * Python should be already installed. If you want to check this (& pip)
     ```console
     python3 --version
+    sudo apt install python3-pip -y
     pip3 --version
     ```
 * Get the Pimeroni driver & install
