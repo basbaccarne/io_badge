@@ -42,7 +42,7 @@ screen = pygame.display.set_mode(
 
 # Preloading: Load the gif frames
 print(f"Loading png images from: {IMG_DIR / 'frames'}")
-font = pygame.font.Font('freesansbold.ttf', 32)
+font = pygame.font.Font(None, 32)
 text_surface = font.render('Some Text', False, (0, 0, 0))
 text = font.render('Loading', True, (255, 255, 255))
 textRect = text.get_rect()
