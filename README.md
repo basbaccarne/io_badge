@@ -93,6 +93,40 @@ IO badges for fun
     ```console
     python3 io_badge/src/main.py
     ```
+
+* set-up **auto boot**
+   * Create service
+     ```console
+     sudo nano /etc/systemd/system/videoplayer.service
+     ```
+   * Add this code
+     ```ini
+     [Unit]
+     Description=Autostart Video Player on Boot (Framebuffer)
+     After=multi-user.target
+     Wants=multi-user.target
+     
+     [Service]
+     User=pi
+     Group=pi
+     Type=simple
+     ExecStart=/usr/bin/mpv --fs --loop=inf /home/pi/io_badge/img/test_optimized.mp4
+     WorkingDirectory=/home/pi
+     Restart=always
+     RestartSec=5
+     Environment=DISPLAY=:0
+     TTYPath=/dev/tty1
+     
+     [Install]
+     WantedBy=multi-user.target
+     ```
+  * Enable the service
+    ```console
+    sudo systemctl daemon-reload
+    sudo systemctl enable videoplayer.service
+    sydo systemctl start videoplayer.service
+    ```
+
 ## Challenge: playing visuals on a raspberry pi zero W
 
 Visualising animations on this set-up can be done in 4 ways.
