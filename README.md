@@ -71,7 +71,8 @@ IO badges for fun
 * Install pygame depencies
     ```console
     sudo apt install -y python3-dev python3-pip libsdl2-dev libsmpeg-dev libportmidi-dev libsdl2-mixer-2.0-0 \
-    libavformat-dev libswscale-dev libjpeg-dev libtiff5-dev libx11-6 libsdl2-net-dev libsdl2-image-2.0-0 libpng-dev
+    libavformat-dev libswscale-dev libjpeg-dev libtiff5-dev libx11-6 libsdl2-net-dev libsdl2-image-2.0-0 libpng-dev libsdl2-ttf-2.0-0
+
     ```
 * Update pygame (you need a pygame version above 2.x, but the latest pygame version seems be giving issues)   
     ```console
@@ -92,6 +93,34 @@ IO badges for fun
     ```console
     python3 io_badge/src/main.py
     ```
+## Challenge: playing visuals on a raspberry pi zero W
+
+Visualising animations on this set-up can be done in 4 ways.
+
+* mpv (best performance for videos)
+* fbi (image sequences)
+* pygame (interactive image sequences)
+* PIL (ultra lightweight rendering)
+
+### mpv   
+
+**Create video**   
+You can create videos from e.g. protopie (click record in the preview window to save as mp4).    
+
+**Optimize video**   
+resolution of 480x480, 30 FPS, no sound, ultrafast, bitrate of 30 (don't do this if you need acurate colors)   
+
+```console
+ffmpeg -i img/test.mp4 -vf "scale=480:480,fps=30" -c:v libx264 -preset ultrafast -crf 30 -an img/test_optimized.mp4
+```
+
+**Play the video**   
+You can play this video with mpv (install if needed)   
+
+```console
+sudo apt install mpv -y
+mpv --fs --loop=inf /home/pi/io_badge/img/test_optimized.mp4
+```
 
 ## Challenge: animated vector-based images to pygame
 Let's start at the beginning. If we want to create an animation, we need to first design and animate a concept. I believe that Figma has the best balance between creative flexibility and intuitive controls. For more advanced animations you can work in Adobe After Effects, Krita, etc. 
@@ -127,22 +156,45 @@ Let's start at the beginning. If we want to create an animation, we need to firs
  <img src="img/example.gif" width="300"> 
 </div>
 
+However, rendering in PyGame on a raspi zero is challenging and should be kept to a minimum. Preferably only when interaction is needed.   
+
 ### Challenge: reducing resources on the pi
 A smooth 30FPS animation based on a spritesheet can be challenging in a raspi pi zero w, which has limited resources, even on a zero W2 the FPS for full screen 480x480 pngs in a spritesheet is a bit too munch. Paths to explore:
-- [x] Free up system resources
+- [x] Free up system resources 
     ```console
     sudo systemctl disable bluetooth
     sudo systemctl stop avahi-daemon
     sudo systemctl stop hciuart
     ```
+    
+    ```Verdict```: still too slow
+
 - [x] Disable camera (```sudo raspi-config``` > Select 'Interfacing Options' -> 'Camera' -> Disable)
+
+   ```Verdict```: still too slow
+
 - [x] Increase video memory
     * ```sudo nano /boot/config.txt```
     * add ```ini gpu_mem=128```
+      
+   ```Verdict```: still too slow
 
-- [ ] animated GIF directly
-- [ ] Use individual images instead of spritesheet
+- [x] animated GIF directly ([test script](tests/pygame_directgif.py))
+
+  ```console   
+  pip install pillow
+  ``` 
+  ```Verdict```: still too slow
+
+- [x] Use individual images instead of spritesheet (png) ([tests script](tests/pygame_individualpngs.py))
+      
+  ```Verdict```: still too slow, but significantly better
+
 - [ ] Use BMP instead of png
+
+  ```console
+  ffmpeg -i img/example.gif img/frames/frame_%04d.bmp
+  ```
 - [ ] Lower the resolution
 - [ ] Rebuild animation in PyGame
 
