@@ -1,13 +1,14 @@
-# io_badge
-IO badges for fun
+# IO Badge
+This project explores the possibilities of integrating a circular display with a raspberry pi zero W in an integrated set-up. Current use case: interactive badges that can be used to show off 🕶️.
 
 # Hardware
 - [ ] [HyperPixel2r](https://www.elektor.com/hyperpixel-2-1-round-hi-res-display-for-raspberry-pi) from Pimoroni
-- [ ] Raspi Zero W
-- [ ] Micro USB cable
-- [ ] [USB Battery Pack](https://voltaicsystems.com/v25/)
+- [ ] [Raspi Zero WH2](https://www.raspberrypi.com/products/raspberry-pi-zero-2-w/) (the H version has headers)
+- [ ] Micro USB to USB A cable (power)
+- [ ] [USB Battery Pack](https://voltaicsystems.com/v25/) // to be explored: Lipo + [LiPo Rider](https://www.kiwi-electronics.com/en/lipo-rider-plus-charger-booster-5v-2-4a-usb-type-c-9960)
 - [ ] [3D printed case](https://a360.co/3FlakQw)
-- [ ] M2.5 stads-offs, nuts and bolts
+- [ ] [M2.5 stand-offs, nuts and bolts](https://www.adafruit.com/product/3299)
+- [ ] M2.5 threaded inserts
 
 <div align="center">  
  <img src="img/cad_design.png" width="300"> 
@@ -74,7 +75,7 @@ IO badges for fun
     libavformat-dev libswscale-dev libjpeg-dev libtiff5-dev libx11-6 libsdl2-net-dev libsdl2-image-2.0-0 libpng-dev libsdl2-ttf-2.0-0
 
     ```
-* Update pygame (you need a pygame version above 2.x, but the latest pygame version seems be giving issues)   
+* Update pygame (you need a pygame version above 2.x, but the latest pygame version seems to be giving issues)   
     ```console
     pip3 install pygame==2.1.3 --no-cache-dir
     python3 -c "import pygame; print(pygame.__version__)"
@@ -127,7 +128,7 @@ IO badges for fun
     sydo systemctl start videoplayer.service
     ```
 
-## Challenge: playing visuals on a raspberry pi zero W
+## Subchallenge: playing visuals on a raspberry pi zero W
 
 Visualising animations on this set-up can be done in 4 ways.
 
@@ -156,7 +157,7 @@ sudo apt install mpv -y
 mpv --fs --loop=inf /home/pi/io_badge/img/test_optimized.mp4
 ```
 
-## Challenge: animated vector-based images to pygame
+## Subchallenge: animated vector-based images to pygame
 Let's start at the beginning. If we want to create an animation, we need to first design and animate a concept. I believe that Figma has the best balance between creative flexibility and intuitive controls. For more advanced animations you can work in Adobe After Effects, Krita, etc. 
 
 **Animations in Figma**
@@ -192,7 +193,7 @@ Let's start at the beginning. If we want to create an animation, we need to firs
 
 However, rendering in PyGame on a raspi zero is challenging and should be kept to a minimum. Preferably only when interaction is needed.   
 
-### Challenge: reducing resources on the pi
+### Subchallenge: reducing resources on the pi
 A smooth 30FPS animation based on a spritesheet can be challenging in a raspi pi zero w, which has limited resources, even on a zero W2 the FPS for full screen 480x480 pngs in a spritesheet is a bit too munch. Paths to explore:
 - [x] Free up system resources 
     ```console
@@ -224,14 +225,15 @@ A smooth 30FPS animation based on a spritesheet can be challenging in a raspi pi
       
   ```Verdict```: still too slow, but significantly better
 
-- [ ] Use BMP instead of png
+- [x] Use BMP instead of png
 
   ```console
   ffmpeg -i img/example.gif img/frames/frame_%04d.bmp
   ```
-- [ ] Lower the resolution
-- [ ] Rebuild animation in PyGame
 
+  ```Verdict```: still too slow
+
+**CONCLUSION:** running animated GIFs in pygame is challenging on a raspi zero w 2. Running video's works, for for PyGame it is better design in PyGame as much as possible and to keep it as simple as possible. 
 
 ## Inspiration
 
