@@ -71,8 +71,9 @@ This project explores the possibilities of integrating a circular display with a
 
 * Install pygame depencies
     ```console
-    sudo apt install -y python3-dev python3-pip libsdl2-dev libsmpeg-dev libportmidi-dev libsdl2-mixer-2.0-0 \
-    libavformat-dev libswscale-dev libjpeg-dev libtiff5-dev libx11-6 libsdl2-net-dev libsdl2-image-2.0-0 libpng-dev libsdl2-ttf-2.0-0
+    sudo apt install -y python3-dev python3-pip libsdl2-dev libsmpeg-dev libportmidi-dev  \
+    libsdl2-mixer-2.0-0 libavformat-dev libswscale-dev libjpeg-dev libtiff5-dev libx11-6  \
+    libsdl2-net-dev libsdl2-image-2.0-0 libpng-dev libsdl2-ttf-2.0-0
 
     ```
 * Update pygame (you need a pygame version above 2.x, but the latest pygame version seems to be giving issues)   
