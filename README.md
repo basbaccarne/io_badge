@@ -9,6 +9,7 @@ This project explores the possibilities of integrating a circular display with a
 - [ ] [3D printed case](https://a360.co/3FlakQw)
 - [ ] [M2.5 stand-offs, nuts and bolts](https://www.adafruit.com/product/3299)
 - [ ] M2.5 threaded inserts
+- [ ] [4 Rare Earth Magnets](https://www.kiwi-electronics.com/nl/high-strength-rare-earth-magnet-3203)
 
 <div align="center">  
  <img src="img/cad_design.png" width="300"> 
