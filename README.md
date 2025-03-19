@@ -6,7 +6,7 @@ This project explores the possibilities of integrating a circular display with a
 - [ ] [Raspi Zero WH2](https://www.raspberrypi.com/products/raspberry-pi-zero-2-w/) (the H version has headers)
 - [ ] Micro USB to USB A cable (power)
 - [ ] [USB Battery Pack](https://voltaicsystems.com/v25/) // to be explored: Lipo + [LiPo Rider](https://www.kiwi-electronics.com/en/lipo-rider-plus-charger-booster-5v-2-4a-usb-type-c-9960)
-- [ ] [3D printed case](https://a360.co/3FlakQw)
+- [ ] [3D printed case](https://a360.co/3FlakQw) (be carefull not to break your SD card when mounting, I've been there)
 - [ ] [M2.5 stand-offs, nuts and bolts](https://www.adafruit.com/product/3299)
 - [ ] M2.5 threaded inserts
 - [ ] [4 Rare Earth Magnets](https://www.kiwi-electronics.com/nl/high-strength-rare-earth-magnet-3203)
