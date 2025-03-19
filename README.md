@@ -17,26 +17,32 @@ This project explores the possibilities of integrating a circular display with a
 
 # Installation
 * Burn raspi OS [[Buster](https://downloads.raspberrypi.com/raspios_lite_armhf/images/raspios_lite_armhf-2021-05-28/)] on a fresh pi
-* This works best headless
-    * Add a file named ```wpa_supplicant.conf``` to the BOOT folder on the sd card (not the ROOT)
-        * Make sure it is encoded as EOL > Unix
-        * Add the following:
-            ```ini
-            country=BE
-            ctrl_interface=DIR=/var/run/wpa_supplicant GROUP=netdev
-            update_config=1
+* This works best headless (setup eveything in the raspberry pi burner to connect using SSH and connect to the wifi)
+   <details>
+     <summary>Or use this manual approach</summary>   
+    
+        * Add a file named wpa_supplicant.conf to the BOOT folder on the sd card (not the ROOT)
+           * Make sure it is encoded as EOL > Unix
+           * Add the following:
+               
+               country=BE
+               ctrl_interface=DIR=/var/run/wpa_supplicant GROUP=netdev
+               update_config=1
+               ap_scan=1  
+   
+               network={
+                   ssid="SSID"
+                   psk="password"
+                   scan_ssid=1
+                   key_mgmt=WPA-PSK
+               }
+               
+       * Add a file in the same directory called ssh (without extention, this allows to enter the pi using SSH)
+       * Note to self: this didn't work on my Telenet router, but did work on the repeater
+     </details>
+    
 
-            network={
-                ssid="SSID"
-                psk="password"
-                scan_ssid=1
-                key_mgmt=WPA-PSK
-                ap_scan=1  
-            }
-            ```
-    * Add a file in the same directory called ```ssh``` (without extention, this allows to enter the pi using SSH)
-    * Note to self: this didn't work on my Telenet router, but did work on the repeater
-    * Enter Sd card, power up, and give the device some time to boot (reboot can be needed after initial boot)
+* Enter Sd card, power up, and give the device some time to boot (reboot can be needed after initial boot)
 
 * Update pi (this will take a while)
     ```console
