@@ -16,7 +16,7 @@ This project explores the possibilities of integrating a circular display with a
 </div>
 
 # Installation
-* Burn raspi OS [[Buster](https://downloads.raspberrypi.com/raspios_lite_armhf/images/raspios_lite_armhf-2021-05-28/)] on a fresh pi
+* Burn raspi OS on a fresh pi
 * This works best headless (setup eveything in the raspberry pi burner to connect using SSH and connect to the wifi)
    <details>
      <summary> Or use this manual approach</summary>   
@@ -43,29 +43,33 @@ This project explores the possibilities of integrating a circular display with a
     
 
 * Enter SD card in Pi, power up, and give the device some time to boot (reboot can be needed after initial boot)
-* I like to use my phone's hotspot for this, use Angry IP scanner for IP adresses and WinSCP/Putty for SSH
-
+* I like to use my phone's hotspot for this, use Angry IP scanner for IP adresses and WinSCP/Putty for SSH or in cmd
+  ```console
+   ssh pi@[ip.adress]
+  ```
 * Update pi (this will take a while)
     ```console
     sudo apt update
     sudo apt upgrade -y
     ```
-* Install git
-    ```console
-    sudo apt install git -y
-    ```
-* Python should be already installed. If you want to check this (& pip)
+* Python, pip & pygame should be already installed. If you want to check this
     ```console
     python3 --version
-    sudo apt install python3-pip -y
     pip3 --version
+    python3 -c "import pygame; print(pygame.__version__)"
     ```
-* Get the Pimeroni driver & install
+* Install the Pimoroni display
     ```console
-    git clone https://github.com/pimoroni/hyperpixel2r
-    cd hyperpixel2r
-    sudo ./install.sh
-    sudo reboot
+    sudo nano /boot/firmware/config.txt
+    ```
+    * add ```dtoverlay=vc4-kms-dpi-hyperpixel2r``` at the end of the document
+    * configurations (```sudo raspi-config```)
+      * enable I2C
+      * set to boot in CLI
+* Reboot
+* Testrun the code (simple) 
+    ```console
+    python3 io_badge/tests/pygame_simple.py
     ```
 * Check boot/config.txt (or /boot/firmware/config. txt). At the end of the file, you should see
     ```ini
