@@ -43,6 +43,7 @@ This project explores the possibilities of integrating a circular display with a
     
 
 * Enter SD card in Pi, power up, and give the device some time to boot (reboot can be needed after initial boot)
+* I like to use my phone's hotspot for this, use Angry IP scanner for IP adresses and WinSCP/Putty for SSH
 
 * Update pi (this will take a while)
     ```console
