@@ -31,6 +31,7 @@ This project explores the possibilities of integrating a circular display with a
                 psk="password"
                 scan_ssid=1
                 key_mgmt=WPA-PSK
+                ap_scan=1  
             }
             ```
     * Add a file in the same directory called ```ssh``` (without extention, this allows to enter the pi using SSH)
