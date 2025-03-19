@@ -19,7 +19,7 @@ This project explores the possibilities of integrating a circular display with a
 * Burn raspi OS [[Buster](https://downloads.raspberrypi.com/raspios_lite_armhf/images/raspios_lite_armhf-2021-05-28/)] on a fresh pi
 * This works best headless (setup eveything in the raspberry pi burner to connect using SSH and connect to the wifi)
    <details>
-     <summary>Or use this manual approach</summary>   
+     <summary> Or use this manual approach</summary>   
     
         * Add a file named wpa_supplicant.conf to the BOOT folder on the sd card (not the ROOT)
            * Make sure it is encoded as EOL > Unix
