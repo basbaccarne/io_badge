@@ -42,7 +42,7 @@ This project explores the possibilities of integrating a circular display with a
      </details>
     
 
-* Enter Sd card, power up, and give the device some time to boot (reboot can be needed after initial boot)
+* Enter SD card in Pi, power up, and give the device some time to boot (reboot can be needed after initial boot)
 
 * Update pi (this will take a while)
     ```console
