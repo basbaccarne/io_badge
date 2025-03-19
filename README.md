@@ -114,7 +114,7 @@ This project explores the possibilities of integrating a circular display with a
     ```console
     sudo systemctl daemon-reload
     sudo systemctl enable videoplayer.service
-    sydo systemctl start videoplayer.service
+    sudo systemctl start videoplayer.service
     ```
 
 ## Subchallenge: playing visuals on a raspberry pi zero W
