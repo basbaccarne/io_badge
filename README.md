@@ -67,49 +67,23 @@ This project explores the possibilities of integrating a circular display with a
       * enable I2C
       * set to boot in CLI
 * Reboot
-* Testrun the code (simple) 
-    ```console
-    python3 io_badge/tests/pygame_simple.py
-    ```
-* Check boot/config.txt (or /boot/firmware/config. txt). At the end of the file, you should see
-    ```ini
-    # Hyperpixel configuration
-    dtoverlay=hyperpixel2r
-    enable_dpi_lcd=1
-    dpi_group=2
-    dpi_mode=87
-    dpi_output_format=0x7f216
-    dpi_timings=480 0 10 16 55 480 0 15 60 15 0 0 0 60 0 19200000 6
-    ```
-* After reboot, you should see a CLI interface on the display
-
-* Install pygame depencies
-    ```console
-    sudo apt install -y python3-dev python3-pip libsdl2-dev libsmpeg-dev libportmidi-dev  \
-    libsdl2-mixer-2.0-0 libavformat-dev libswscale-dev libjpeg-dev libtiff5-dev libx11-6  \
-    libsdl2-net-dev libsdl2-image-2.0-0 libpng-dev libsdl2-ttf-2.0-0
-
-    ```
-* Update pygame (you need a pygame version above 2.x, but the latest pygame version seems to be giving issues)   
-    ```console
-    pip3 install pygame==2.1.3 --no-cache-dir
-    python3 -c "import pygame; print(pygame.__version__)"
-    ```
-* Reboot system
 * Get the code and media directly from GitHub
     ```console
     git clone https://github.com/basbaccarne/io_badge/
     ```
-* Testrun the code (simple) 
+* Testrun the pygame code (simple) 
     ```console
     python3 io_badge/tests/pygame_simple.py
     ```
-
-* Testrun the code (main) 
+* Install MPV (to play movies) & test
+    ```console
+    sudo apt install mpv -y
+    mpv --fs --loop=inf /home/pi/io_badge/img/test_optimized.mp4
+    ```    
+* Testrun the main code (python script that runs the required services)
     ```console
     python3 io_badge/src/main.py
     ```
-
 * set-up **auto boot**
    * Create service
      ```console
