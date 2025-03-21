@@ -10,7 +10,7 @@ This project explores the possibilities of integrating a circular display with a
 - [ ] [M2.5 stand-offs, nuts and bolts](https://www.adafruit.com/product/3299)
 - [ ] M2.5 threaded inserts
 - [ ] [4 Rare Earth Magnets](https://www.kiwi-electronics.com/nl/high-strength-rare-earth-magnet-3203)
-
+- [ ] [USB-C extender](https://www.kabeldirect.nl/usb-c-v-naar-usb-c-m-adapter-usb4-grijs.html)
 <div align="center">  
  <img src="img/cad_design.png" width="300"> 
 </div>
