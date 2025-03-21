@@ -224,6 +224,21 @@ A smooth 30FPS animation based on a spritesheet can be challenging in a raspi pi
 
 **CONCLUSION:** running animated GIFs in pygame is challenging on a raspi zero w 2. Running video's works, for for PyGame it is better design in PyGame as much as possible and to keep it as simple as possible. 
 
+## Subchallenge: raspi and Lipo batteries
+For a wireless badge, I want to include a Lipo battery pack to power the raspi and the screen. To do this, I'm experimenting with the [Seeed Studio Lipo rider](https://wiki.seeedstudio.com/Lipo-Rider-Plus/) plus (you only need the pro version if you want to work with something like solar panels). This not only includes easy charging but also has a switch that we can use to power up and down our device (both physical and pin controlled).
+
+* Output: 5V / 4.4A (can also output 3.3V/250mA)
+* Required: raspi under load (600mA) + display (110mA backlight + 40mA screen) = 270 mA > provide min. 1A
+* Battery ranges:
+   * 1-3 hours: 2500-3000mAh
+   * 4-6 hours: 4000-6000mAh
+   * 8+ hours: 10000mAh
+ 
+ Embedding this in a product:
+ - [ ] a lot of **heath** will build up with all these electronics: think about ventillation or use thermal pads on the Pi's CPU
+ - [ ] Include a button to control the power (e.g. an extention of the physical button)
+ - [ ] Work with light guides to transfer led power on led and battery level leds
+
 ## Inspiration
 
 https://www.youtube.com/watch?v=l75A9TUMXOs   
