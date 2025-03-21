@@ -100,6 +100,7 @@ This project explores the possibilities of integrating a circular display with a
      User=pi
      Group=pi
      Type=simple
+     Environment="XDG_RUNTIME_DIR=/run/user/1000"
      ExecStart=/usr/bin/mpv --fs --loop=inf /home/pi/io_badge/img/test_optimized.mp4
      WorkingDirectory=/home/pi
      Restart=always
